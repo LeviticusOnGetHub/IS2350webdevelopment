@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <title>Leviticus Land | Cybersecurity Analyst</title>
   <meta charset="utf-8">
@@ -71,7 +72,34 @@
         <li>Computer Science adjacent training and advanced Cybersecurity focus.</li>
       </ul>
     </section>
+
+    <section class="mt-5" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="border-bottom pb-2">Contact Me</h2>
+      <form id="contact-form">
+        <div class="mb-3">
+          <label for="full-name" class="form-label">Full name</label>
+          <input type="text" class="form-control" id="full-name" name="fullName" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Contact me</button>
+      </form>
+    </section>
   </main>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById('full-name').value;
+      const message = document.getElementById('message').value;
+
+      console.log('Guest name:', fullName);
+      console.log('Message:', message);
+    });
+  </script>
 </body>
 
 </html>

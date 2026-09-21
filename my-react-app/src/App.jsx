@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div className="App" style={{ textAlign: "center", padding: "2rem" }}>
+    <div className="App">
       <h1>Hello World!</h1>
       <h1>Leviticus Land </h1>
 

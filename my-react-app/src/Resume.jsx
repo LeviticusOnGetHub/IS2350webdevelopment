@@ -3,8 +3,8 @@ import React from "react";
 export function Header() {
   return (
     <header className="resume-header">
-      <h1>Your Name</h1>
-      <p>Job Title / Tagline</p>
+      <h1>David Li</h1>
+      <p>Professor in Information Systems</p>
       <p>email@example.com | (555) 555-5555 | City, State</p>
     </header>
   );
@@ -48,6 +48,14 @@ export function Skills() {
       <ul>
         <li>Skill One</li>
       </ul>
+    </section>
+  );
+}
+export function ContactMe() {
+  return (
+    <section className="resume-contact">
+      <h2>Contact Me</h2>
+      <p>email@example.com | (555) 555-5555 | City, State</p>
     </section>
   );
 }

@@ -1,62 +1,125 @@
-import React from "react";
-
 export function Header() {
   return (
     <header className="resume-header">
-      <h1>David Li</h1>
-      <p>Professor in Information Systems</p>
-      <p>email@example.com | (555) 555-5555 | City, State</p>
+      <p className="eyebrow">Resume</p>
+      <h1>Leviticus Land</h1>
+      <address>
+        Fort Wayne, IN 46803 <span aria-hidden="true">|</span> (260) 456-7890{" "}
+        <span aria-hidden="true">|</span>{" "}
+        <a href="mailto:Lland@gmail.com">Lland@gmail.com</a>
+      </address>
     </header>
   );
 }
 
 export function Summary() {
   return (
-    <section className="resume-summary">
-      <h2>Summary</h2>
-      <p>Brief professional summary goes here.</p>
-    </section>
-  );
-}
-
-export function Experience() {
-  return (
-    <section className="resume-experience">
-      <h2>Experience</h2>
-      <ul>
-        <li>Job Title — Company Name (Start – End)</li>
-      </ul>
-    </section>
-  );
-}
-
-export function Education() {
-  return (
-    <section className="resume-education">
-      <h2>Education</h2>
-      <ul>
-        <li>Degree — School Name (Year)</li>
-      </ul>
+    <section className="resume-section" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Professional Summary</h2>
+      <p>
+        Cybersecurity Analyst and current Cybersecurity student with a
+        background in IT from the Army National Guard. Basic technical training
+        and certifications.
+      </p>
     </section>
   );
 }
 
 export function Skills() {
   return (
-    <section className="resume-skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Skill One</li>
+    <section className="resume-section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Technical Skills &amp; Certifications</h2>
+      <ul className="detail-list">
+        <li>
+          <strong>Certifications:</strong> Google Cybersecurity Professional
+          Certificate (Expected June 2026), CompTIA Security+ (In Progress).
+        </li>
+        <li>
+          <strong>Technical Proficiencies:</strong> Python, Linux, and IT
+          Specialization.
+        </li>
+        <li>
+          <strong>Core Skills:</strong> Critical Analysis, Technical Writing,
+          Communication, and Teaching.
+        </li>
       </ul>
     </section>
   );
 }
-export function ContactMe() {
+
+export function Experience() {
   return (
-    <section className="resume-contact">
-      <h2>Contact Me</h2>
-      <p>email@example.com | (555) 555-5555 | City, State</p>
+    <section className="resume-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Professional Experience</h2>
+      <div className="experience-list">
+        <article className="experience-item">
+          <div className="experience-heading">
+            <h3>Walmart</h3>
+            <p className="experience-meta">Overnight Stocker · November 2024 – Present</p>
+          </div>
+          <ul>
+            <li>
+              Perform late-night store stocking operations to maintain product
+              availability.
+            </li>
+            <li>Maintain high standards of organization and workflow.</li>
+          </ul>
+        </article>
+        <article className="experience-item">
+          <div className="experience-heading">
+            <h3>Army National Guard</h3>
+            <p className="experience-meta">
+              25 Bravo (IT Specialist) · December 2023 – October 2024
+            </p>
+          </div>
+          <ul>
+            <li>
+              Completed intensive combat, physical, and technical training with
+              a focus on IT specialization.
+            </li>
+            <li>Developed skills in secure communications and network cabling.</li>
+          </ul>
+        </article>
+        <article className="experience-item">
+          <div className="experience-heading">
+            <h3>Menards</h3>
+            <p className="experience-meta">
+              Front End Member · October 2020 – May 2024
+            </p>
+          </div>
+          <ul>
+            <li>
+              Processed customer transactions and returns, assisted with basic
+              maintenance, and supported cart pushing and stocking.
+            </li>
+            <li>
+              Provided consistent customer service and front-end support.
+            </li>
+          </ul>
+        </article>
+      </div>
     </section>
   );
 }
 
+export function Education() {
+  return (
+    <section className="resume-section" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <article className="experience-item education-item">
+        <div className="experience-heading">
+          <h3>Indiana Tech</h3>
+          <p className="experience-meta">
+            Bachelor of Science in Cybersecurity · September 2024 – May 2029
+          </p>
+        </div>
+        <ul>
+          <li>
+            Computer science-adjacent training with an advanced focus on
+            cybersecurity.
+          </li>
+        </ul>
+      </article>
+    </section>
+  );
+}

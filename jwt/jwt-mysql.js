@@ -14,44 +14,51 @@ app.use(cors({
 app.use(bodyParser.json());
 
 const JWT_SECRET = '1600ewashingtonblvdZollner';
-// Sample user database
-const users = [
-  { id: 1, username: 'user1', password: 'password1', role: 'user' }
-];
-
-let con = mysql.createConnection({
+// Pool so each request gets a connection and reconnects are handled
+const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "root_password"
+  password: "root_password",
+  database: "my_database"
 });
 
-
-// Login route - generate token
+// Login route - authenticate against the users table, then generate token
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body || {};
 
-  // Find user
-  const user = users.find(u => u.username === username && u.password === password);
-  con.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
-
-  if (!user) {
-    return res.status(401).json({ message: 'Invalid credentials' });
+  if (typeof username !== 'string' || typeof password !== 'string') {
+    return res.status(400).json({ message: 'Username and password are required' });
   }
 
-  // Create payload for JWT
-  const payload = {
-    id: user.id,
-    username: user.username,
-    role: user.role
-  };
+  // Parameterized query prevents SQL injection
+  pool.query(
+    'SELECT id, username, role FROM users WHERE username = ? AND password = ?',
+    [username, password],
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ message: 'Database error' });
+      }
 
-  // Sign token
-  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' });
+      if (results.length === 0) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+      }
 
-  res.json({ message: 'Login successful', token });
+      const user = results[0];
+
+      // Create payload for JWT
+      const payload = {
+        id: user.id,
+        username: user.username,
+        role: user.role
+      };
+
+      // Sign token
+      const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' });
+
+      res.json({ message: 'Login successful', token });
+    }
+  );
 });
 
 // Middleware for JWT verification

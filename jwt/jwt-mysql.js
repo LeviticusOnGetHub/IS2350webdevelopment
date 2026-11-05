@@ -18,6 +18,7 @@ const JWT_SECRET = '1600ewashingtonblvdZollner';
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
+  port: Number(process.env.DB_PORT) || 3306,
   password: "root_password",
   database: "my_database"
 });
@@ -106,6 +107,7 @@ app.get('/admin', authenticateJWT, (req, res) => {
 });
 
 // Start server
-app.listen(8080, () => {
-  console.log('Server running on port 8080');
+const PORT = Number(process.env.PORT) || 8080;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

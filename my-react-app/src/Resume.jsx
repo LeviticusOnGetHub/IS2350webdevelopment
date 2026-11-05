@@ -123,3 +123,15 @@ export function Education() {
     </section>
   );
 }
+
+export function Resume() {
+  return (
+    <div className="resume">
+      <Header />
+      <Summary />
+      <Skills />
+      <Experience />
+      <Education />
+    </div>
+  );
+}

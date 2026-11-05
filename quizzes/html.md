@@ -7,12 +7,16 @@
 - C) Client Tier
 - D) DNS Tier
 
+Client Tier
+
 **2. Which technologies are used by the Client Tier to render user interfaces?**
 
 - A) Java, C++, Python
 - B) HTML, CSS, JavaScript
 - C) Node.js, Express, MongoDB
 - D) SQL, PHP, Ruby
+
+HTML CSS and JavaScript
 
 **3. What is the primary function of the Domain Name System (DNS)?**
 
@@ -21,12 +25,18 @@
 - C) To render HTML content
 - D) To execute route middleware logic
 
+To translate human readable shit into IP addresses
+
+Google.com to whatever ip address it is because nobody is going to remember the numbers for everything they look up
+
 **4. What type of addresses does DNS translate human-readable web addresses into?**
 
 - A) MAC addresses
 - B) Numeric IP addresses
 - C) Hexadecimal addresses
 - D) Binary addresses
+
+IP adresses we just went over it in the other question
 
 **5. Which tier processes application business rules?**
 
@@ -35,12 +45,16 @@
 - C) Data Tier
 - D) DNS Tier
 
+Server Tier i think that makes the most sense applications and servers are good atdoing that
+
 **6. What is provided as an example of a web server technology?**
 
 - A) React.js
 - B) Node.js
 - C) Vue.js
 - D) Angular
+
+Node.js all the others are front ends
 
 **7. What is the role of the Data Tier?**
 
@@ -49,12 +63,16 @@
 - C) To translate web addresses
 - D) To store and retrieve persistent application records
 
+To store and retrieve records data for data stuff
+
 **8. What type of connection does the client browser initiate during an HTTP Request?**
 
 - A) UDP connection
 - B) TCP connection
 - C) FTP connection
 - D) SSH connection
+
+TCP
 
 **9. Which of the following is listed as an HTTP request method?**
 
